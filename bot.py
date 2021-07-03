@@ -7,7 +7,7 @@ from discord.ext import commands
 ## Constants and Config
 intents = discord.Intents.default()
 
-## Define nukeBot
+## Define severalBot
 class severalBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -28,5 +28,5 @@ class severalBot(commands.Bot):
         await client.change_presence(status=discord.Status.offline)
 
 ## Create instance of severalBot using config.cfg['discord']['token']
-client = severalBot(intents=intents)
+client = severalBot(command_prefix=config.cfg['options']['prefix'], intents=intents)
 client.run(config.cfg['discord']['token'])

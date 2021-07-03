@@ -3,7 +3,8 @@ discord:
   token: "TOKEN"                        # Provide your token here
 
 # Bot settings        
-options:        
+options:      
+  prefix: ":"  
   logging:                              
     # WARNING! if you diable all logging and something breaks, fixing it will be very difficult. 
     # Recommend you leave console logging enabled as a minimum
