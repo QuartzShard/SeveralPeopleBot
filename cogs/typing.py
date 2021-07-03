@@ -1,6 +1,5 @@
 ## Initialization
 import discord
-from common import config, log
 from discord.ext import commands, tasks
 
 ## General utility commands

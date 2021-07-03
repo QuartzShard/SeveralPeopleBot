@@ -6,13 +6,11 @@ from discord.ext import commands
 
 ## Constants and Config
 intents = discord.Intents.default()
-intents.members = config.cfg['discord']['intents']['members']
 
 ## Define nukeBot
 class severalBot(commands.Bot):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
 
         ## Load Cogs - Modules in ./cogs directory
         for file in os.listdir("./cogs"):             # List contents of ./cogs
@@ -20,7 +18,7 @@ class severalBot(commands.Bot):
                 name = file[:-3]                      # Trim ".py" from string
                 self.load_extension(f"cogs.{name}")   # Load Cog
 
-    ## Log to console when ready
+    ## Log when ready
     async def on_ready(self):
         log.log('--------------------------------')
         log.log('Bot Ready.')
@@ -29,8 +27,6 @@ class severalBot(commands.Bot):
         log.log('--------------------------------')
         await client.change_presence(status=discord.Status.offline)
 
-
-
-## Create instance of nukeBot using config.cfg['discord']['token']
-client = severalBot(command_prefix = config.cfg['options']['prefix'], intents=intents)
+## Create instance of severalBot using config.cfg['discord']['token']
+client = severalBot(intents=intents)
 client.run(config.cfg['discord']['token'])
