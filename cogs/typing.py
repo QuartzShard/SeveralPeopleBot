@@ -12,7 +12,7 @@ class typing(commands.Cog):
     async def on_message(self, ctx):
         await ctx.channel.trigger_typing()
     
-    @commands.Command()
+    @commands.command()
     async def callout(self, ctx):
         embed = self.embedMessage.embed(
             title = f'twitter.com: @{self.bot.user.display_name} updated their status',
