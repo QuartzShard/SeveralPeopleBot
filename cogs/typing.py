@@ -67,4 +67,4 @@ class typing(commands.Cog):
     
 ## Allow use of cog class by main bot instance
 def setup(bot):
-bot.add_cog(typing(bot))
+    bot.add_cog(typing(bot))
