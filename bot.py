@@ -28,5 +28,5 @@ class severalBot(commands.Bot):
         await client.change_presence(status=discord.Status.offline)
 
 ## Create instance of severalBot using config.cfg['discord']['token']
-client = severalBot(command_prefix=config.cfg['options']['prefix'], intents=intents)
+client = severalBot(command_prefix=commands.when_mentioned_or(config.cfg['options']['prefix']), intents=intents)
 client.run(config.cfg['discord']['token'])
